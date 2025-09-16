@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be Right Back - ITZDRIBZ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a0101, #3f0202, #1a0101);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+
+        /* Background elements for a dynamic look */
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 1500px;
+            height: 1500px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 50%;
+            animation: pulse 15s infinite ease-in-out alternate;
+            z-index: 0;
+            filter: blur(50px);
+        }
+
+        body::before {
+            top: -50%;
+            left: -50%;
+        }
+
+        body::after {
+            bottom: -50%;
+            right: -50%;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.1; }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            /* The padding value '200px' increases the width lengthwise */
+            padding: 100px 200px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 0 70px rgba(255, 0, 0, 0.6);
+            border: 3px solid #ff0000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            width: 450px;
+            height: 450px;
+            margin-bottom: 40px;
+            animation: bounceIn 1s ease-out;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            border: 2px solid #ff0000;
+            animation: red-holo-glow 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes red-holo-glow {
+            0% {
+                box-shadow:
+                    0 0 30px rgba(255, 0, 0, 0.8),
+                    0 0 60px rgba(255, 0, 0, 0.5);
+            }
+            33% {
+                box-shadow:
+                    0 0 30px rgba(200, 0, 0, 0.8),
+                    0 0 60px rgba(200, 0, 0, 0.5);
+            }
+            66% {
+                box-shadow:
+                    0 0 30px rgba(255, 60, 60, 0.8),
+                    0 0 60px rgba(255, 60, 60, 0.5);
+            }
+            100% {
+                box-shadow:
+                    0 0 30px rgba(255, 0, 0, 0.8),
+                    0 0 60px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 80px;
+            margin: 0;
+            color: #ff3333;
+            text-shadow:
+                0 0 15px rgba(255, 255, 255, 1),
+                0 0 30px #ff0000,
+                0 0 50px #ff0000,
+                0 0 80px #cc0000;
+            animation: fadeInOut 3s infinite alternate;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+
+        p {
+            font-size: 28px;
+            margin: 5px 0;
+            color: #ccc;
+            font-family: 'Roboto Mono', monospace;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #ff0000;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        .second-line, .third-line {
+            opacity: 0;
+            width: 0;
+            border-right: none;
+        }
+
+        .first-line {
+            animation:
+                typewriter-first-line 4s steps(48) forwards,
+                blink-caret-first-line 0.75s step-end 4s forwards;
+        }
+
+        .second-line {
+            animation:
+                show-line 0s forwards,
+                typewriter-second-line 3s steps(32) forwards,
+                blink-caret-second-line 0.75s step-end 3s forwards;
+            animation-delay: 4s;
+        }
+
+        .third-line {
+            animation:
+                show-line 0s forwards,
+                typewriter-third-line 2s steps(18) forwards,
+                blink-caret-third-line 0.75s step-end 2s forwards;
+            animation-delay: 7s;
+        }
+
+        @keyframes typewriter-first-line {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes typewriter-second-line {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes typewriter-third-line {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret-first-line {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff0000; }
+            100% { border-color: transparent; }
+        }
+
+        @keyframes blink-caret-second-line {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff0000; }
+            100% { border-color: transparent; }
+        }
+
+        @keyframes blink-caret-third-line {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff0000; }
+            100% { border-color: transparent; }
+        }
+
+        @keyframes show-line {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .social-links {
+            margin-top: 40px;
+            z-index: 1;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 40px;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff0000;
+            transform: translateY(-5px) scale(1.1);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="dribz.png" alt="ITZDRIBZ Logo" class="logo">
+        </div>
+        <h1>BE RIGHT BACK</h1>
+        <p class="first-line">Taking a short break! Be back shortly...</p>
+        <p class="second-line">In the meantime, feel free to hang out.</p>
+        <p class="third-line">and chill in chat.</p>
+        <div class="social-links">
+            <a href="YOUR_TWITCH_LINK" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
+            <a href="YOUR_TWITTER_LINK" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="YOUR_YOUTUBE_LINK" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="YOUR_INSTAGRAM_LINK" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</body>
+</html>
