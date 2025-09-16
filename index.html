@@ -118,15 +118,39 @@
             font-size: 80px;
             margin: 0;
             color: #ff3333;
+            /* Existing text-shadow as base */
             text-shadow:
                 0 0 15px rgba(255, 255, 255, 1),
-                0 0 30px #ff0000,
-                0 0 50px #ff0000,
-                0 0 80px #cc0000;
-            animation: fadeInOut 3s infinite alternate;
+                0 0 30px #ff0000;
+            animation: glowEffect 3s infinite alternate ease-in-out; /* New animation for glow */
         }
 
-        /* NEW: Container to hold the text and reserve space */
+        /* NEW GLOW EFFECT */
+        @keyframes glowEffect {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+                text-shadow:
+                    0 0 15px rgba(255, 255, 255, 0.8),
+                    0 0 30px #ff0000;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.03); /* Subtle pulse */
+                text-shadow:
+                    0 0 25px rgba(255, 255, 255, 1), /* Brighter white glow */
+                    0 0 50px #ff0000,                  /* Stronger red glow */
+                    0 0 70px #cc0000;                  /* Wider red glow */
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+                text-shadow:
+                    0 0 15px rgba(255, 255, 255, 0.8),
+                    0 0 30px #ff0000;
+            }
+        }
+
         .text-container {
             height: 120px; /* Fixed height for 3 lines of text */
             margin-top: 20px; /* Spacing below the h1 */
